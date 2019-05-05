@@ -5,10 +5,10 @@
         <button class="button-cancel" >Cancel</button>
       </div>
       <div class="pure-u-1-3 header-text">
-        Add Turnover
+        Add Turnover ({{ budgetId }})
       </div>
       <div class="pure-u-1-3 header-logout">
-        <button v-if="!aTurnover.id" class="button-logout" @click="logout()">Logout</button>
+        <button v-if="!aTurnover.id" class="button-logout" @click="switchBudget()">Switch</button>
       </div>
     </div>
     <div class="content">
