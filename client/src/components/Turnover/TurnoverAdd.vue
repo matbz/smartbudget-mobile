@@ -5,10 +5,11 @@
         <button class="button-cancel" >Cancel</button>
       </div>
       <div class="pure-u-1-3 header-text">
-        Add Turnover
+        Add Turnover<br/>(Budget: {{ budgetId }})
       </div>
       <div class="pure-u-1-3 header-logout">
         <button v-if="aTurnover.id" class="button-logout" @click="deleteTurnover()">Delete</button>
+        <button v-else class="button-logout" @click="switchBudget()">Switch</button>
       </div>
     </div>
     <div class="content">
@@ -71,6 +72,13 @@
 import { mapGetters } from 'vuex';
 import moment from 'moment';
 import Datepicker from 'vuejs-datepicker';
+import { HTTP } from '@/common/utilities';
+
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
+}
 
 export default {
   components: {
@@ -103,6 +111,25 @@ export default {
     },
     saveNote() {
       this.$store.dispatch('setTurnover', this.aTurnover);
+    },
+    async switchBudget() {
+      const response = await HTTP.get(`/api/budgets?userid=${this.user.id}`);
+      if (response.data.length === 2) {
+        await asyncForEach(response.data, async (o) => {
+          await HTTP.put(`/api/budgets/${o.id}`, {
+            active: !o.active
+          });
+        });
+
+        await this.$store.dispatch('getBudgetId', this.$store.getters.user);
+        this.$store.dispatch('getAccounts');
+        this.$store.dispatch('getTurnovers');
+        this.$store.dispatch('getToBeBudgeted', this.budgetDate);
+        this.$store.dispatch('getBudgetList', this.budgetDate);
+        // this.$toasted.success('Budget switched.');
+      } else {
+        this.$toasted.show('No other budget found.');
+      }
     },
     async saveTurnover() {
       if (this.aTurnover.accountId && this.aTurnover.turnoverDate) {

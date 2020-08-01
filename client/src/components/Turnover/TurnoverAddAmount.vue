@@ -144,7 +144,7 @@ export default {
         this.$store.dispatch('getTurnovers');
         this.$store.dispatch('getToBeBudgeted', this.budgetDate);
         this.$store.dispatch('getBudgetList', this.budgetDate);
-        this.$toasted.success('Budget switched.');
+        // this.$toasted.success('Budget switched.');
       } else {
         this.$toasted.show('No other budget found.');
       }

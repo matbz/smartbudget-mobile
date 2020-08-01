@@ -4,11 +4,12 @@
       <div class="pure-u-1-3 header-cancel">
         <i class="fa fa-chevron-circle-left budget-header-icon budget-left" @click="goToLastMonth()"></i>
       </div>
-      <div class="pure-u-1-3 header-text" @click="show()">
+      <div class="pure-u-1-3 header-text" @click="switchBudget()">
         {{ budgetDateFormatted }}
       </div>
       <div class="pure-u-1-3 header-logout">
-        <i class="fa fa-chevron-circle-right budget-header-icon budget-right" @click="goToNextMonth()"></i>
+        <span><i class="fa fa-chevron-circle-right budget-header-icon budget-right" @click="goToNextMonth()">
+        </i></span>
       </div>
     </div>
     <div class="pure-g to-be-budgeted" :class="Number(toBeBudgeted) >= 0 ? 'a-positive' : 'a-negative'">
@@ -110,7 +111,7 @@ export default {
         this.$store.dispatch('getTurnovers');
         this.$store.dispatch('getToBeBudgeted', this.budgetDate);
         this.$store.dispatch('getBudgetList', this.budgetDate);
-        this.$toasted.success('Budget switched.');
+        // this.$toasted.success('Budget switched.');
       } else {
         this.$toasted.show('No other budget found.');
       }
