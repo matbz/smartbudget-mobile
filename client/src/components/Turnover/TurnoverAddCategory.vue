@@ -10,7 +10,9 @@
       <div class="pure-u-1-3 header-text">
         Category
       </div>
-      <div class="pure-u-1-3"></div>
+      <div class="pure-u-1-3 header-logout">
+        <button class="button-logout" @click="switchBudget()">Switch</button>
+      </div>
     </div>
     <div class="content">
       <div class="pure-g add-list">
@@ -26,8 +28,15 @@
 </template>
 
 <script>
+import { HTTP } from '@/common/utilities';
 import { mapGetters } from 'vuex';
 import TurnoverAddCategoryGroup from './TurnoverAddCategoryGroup';
+
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
+}
 
 export default {
   components: {
@@ -37,7 +46,9 @@ export default {
     ...mapGetters([
       'budgetList',
       'categories',
-      'toBeBudgeted'
+      'toBeBudgeted',
+      'budgetDate',
+      'user'
     ]),
     budgetListAdded() {
       const data = [...this.budgetList];
@@ -60,6 +71,25 @@ export default {
   methods: {
     goTo(routeName) {
       this.$router.push({ name: routeName });
+    },
+    async switchBudget() {
+      const response = await HTTP.get(`/api/budgets?userid=${this.user.id}`);
+      if (response.data.length === 2) {
+        await asyncForEach(response.data, async (o) => {
+          await HTTP.put(`/api/budgets/${o.id}`, {
+            active: !o.active
+          });
+        });
+
+        await this.$store.dispatch('getBudgetId', this.$store.getters.user);
+        this.$store.dispatch('getAccounts');
+        this.$store.dispatch('getTurnovers');
+        this.$store.dispatch('getToBeBudgeted', this.budgetDate);
+        this.$store.dispatch('getBudgetList', this.budgetDate);
+        // this.$toasted.success('Budget switched.');
+      } else {
+        this.$toasted.show('No other budget found.');
+      }
     }
   }
 };
