@@ -522,7 +522,7 @@ input:focus {
 
 .budget-item {
   height: 10%;
-  padding: 1em 1em .75em 1em;
+  padding: .9em 1em .75em .9em;
   border-bottom: 1px solid #efeff4;
   font-size: 1em;
   font-weight: 700;

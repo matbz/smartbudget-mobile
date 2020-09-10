@@ -1,6 +1,0 @@
-Rename accounts to account
-Adjust Margins for category name
-Move budgeted a bit to the left
-Show transactions when clicking on a category
-Rename turnover to transaction
-Remove account and payee row from transactions
