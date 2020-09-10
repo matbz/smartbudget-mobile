@@ -504,6 +504,10 @@ input:focus {
   padding: .765em .765em 0;
 }
 
+.vdp-datepicker__calendar {
+  margin-top: 4em;
+}
+
 .modal-popup label {
   display: block;
   font-weight: 700;
