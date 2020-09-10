@@ -4,7 +4,7 @@
       <div class="pure-u-1-3 header-cancel" @click="getThisYear()">
         <button class="button-cancel" >This Year</button>
       </div>
-      <div class="pure-u-1-3 header-text">All Accounts</div>
+      <div class="pure-u-1-3 header-text">Account</div>
       <div class="pure-u-1-3 header-logout" @click="getAllDates()">
         <button class="button-logout" >All Dates</button>
       </div>
@@ -27,11 +27,11 @@
       </button>
       <button class="pure-u-1-3 active" @click="goTo('turnover')">
         <div><i class="fa fa-university footer-icon"></i></div>
-        <div class="footer-text">Accounts</div>
+        <div class="footer-text">Account</div>
       </button>
       <button class="pure-u-1-3" @click="goTo('turnoverAddAmount')">
         <div><i class="fa fa-plus-circle footer-icon"></i></div>
-        <div class="footer-text">Turnover</div>
+        <div class="footer-text">Transaction</div>
       </button>
       <!-- <button class="pure-u-1-4" @click="switchBudget()">
         <div><i class="fa fa-exchange footer-icon"></i></div>

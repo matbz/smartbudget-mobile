@@ -2,10 +2,10 @@
   <div style="width: 100%; height: 100%">
     <div v-if="index !== 0" class="divider"></div>
     <div class="pure-g budget-group">
-      <div class="pure-u-12-24 budget-header-name">
+      <div class="pure-u-11-24 budget-header-name">
         {{ group.header.categorygroup_name }}
       </div>
-      <div class="pure-u-6-24 budget-header budget-header-budgeted">
+      <div class="pure-u-7-24 budget-header budget-header-budgeted">
         <div>Budgeted</div>
         <div>{{ group.header.budgeted | currency }}</div>
       </div>

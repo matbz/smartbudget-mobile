@@ -19,14 +19,14 @@
         </div>
       </div>
       <div class="pure-g add-list">
-        <button class="pure-u-1" @click="goTo('turnoverAddPayee')">
+        <!-- <button class="pure-u-1" @click="goTo('turnoverAddPayee')">
           <span class="fl">Payee:</span>
           <i class="fa fa-angle-right angle-right-icon fr"></i>
           <span class="fr">
             <button v-if="!aTurnover.payee" class="placeholder">Choose a payee</button>
             <button v-else>{{ aTurnover.payee }}</button>
           </span>
-        </button>
+        </button> -->
         <button class="pure-u-1" @click="goTo('turnoverAddCategory')">
           <span class="fl">Category:</span>
           <i class="fa fa-angle-right angle-right-icon fr"></i>
@@ -35,14 +35,14 @@
             <button v-else>{{ aTurnover.categoryName }}</button>
           </span>
         </button>
-        <button class="pure-u-1" @click="goTo('turnoverAddAccount')">
+        <!-- <button class="pure-u-1" @click="goTo('turnoverAddAccount')">
           <span class="fl">Account:</span>
           <i class="fa fa-angle-right angle-right-icon fr"></i>
           <span class="fr">
             <button v-if="!aTurnover.accountName" class="placeholder">Choose an account</button>
             <button v-else>{{ aTurnover.accountName }}</button>
           </span>
-        </button>
+        </button> -->
         <button class="pure-u-1">
           <span class="fl">Date:</span>
           <i class="fa fa-angle-right angle-right-icon fr"></i>
@@ -60,7 +60,6 @@
       </div>
       <div class="pure-g save">
         <button class="pure-u-1 button-primary button-save" @click="saveTurnover()">
-          <i class="fa fa-check-circle-o"></i>
           Save Turnover
         </button>
       </div>

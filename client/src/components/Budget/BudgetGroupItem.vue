@@ -1,10 +1,10 @@
 <template>
 <div>
   <div class="pure-g budget-item">
-    <div class="pure-u-12-24 budget-item-name">
+    <div class="pure-u-11-24 budget-item-name">
       {{ item.category_name }}
     </div>
-    <div class="pure-u-6-24 budgeted" @click="editBudget()">
+    <div class="pure-u-7-24 budgeted" @click="editBudget()">
       {{ item.budgeted | currency }}
     </div>
     <div class="pure-u-6-24">
@@ -42,6 +42,9 @@ export default {
     },
     modalNameEditCategory() {
       return `edit-cat-${this.item.category_id}`;
+    },
+    modalNameShowTransaction() {
+      return `transactions-cat-${this.item.category_id}`;
     },
     goalNotOnTrack() {
       const monthsDifference = moment(this.item.goal_enddate).diff(moment(this.budgetDate).toDate(), 'month', true) + 1;

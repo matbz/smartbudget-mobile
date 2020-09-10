@@ -37,11 +37,11 @@
       </button>
       <button class="pure-u-1-3" @click="goTo('turnover')">
         <div><i class="fa fa-university footer-icon"></i></div>
-        <div class="footer-text">Accounts</div>
+        <div class="footer-text">Account</div>
       </button>
       <button class="pure-u-1-3" @click="goTo('turnoverAddAmount')">
         <div><i class="fa fa-plus-circle footer-icon"></i></div>
-        <div class="footer-text">Turnover</div>
+        <div class="footer-text">Transaction</div>
       </button>
     </div>
   </div>

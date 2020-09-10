@@ -207,13 +207,6 @@ input:focus {
   background: #fff;
 }
 
-.add-list > button {
-  height: 10%;
-  padding: .85em;
-  border-bottom: 1px solid #efeff4;
-  font-size: 1.1em;
-}
-
 .add-list > button > span:nth-child(1){
   font-weight: 700;
 }
@@ -265,7 +258,7 @@ input:focus {
 }
 
 .button-primary {
-  padding: .3em .6em;
+  padding: .3em 1em;
   -webkit-border-radius: .4em;
   border-radius: .4em;
   border: 2px solid transparent;
@@ -398,14 +391,6 @@ input:focus {
   transition-property: none;
 }
 
-.budget-item {
-  height: 10%;
-  padding: .75em 1em .75em .75em;
-  border-bottom: 1px solid #efeff4;
-  font-size: 1em;
-  font-weight: 700;
-}
-
 .budget-group {
   color: #000;
   border-bottom: 1px solid #c6c9ca;
@@ -526,4 +511,19 @@ input:focus {
   width: 100%;
   padding: .1em 0 .5em;
   letter-spacing: 0;
+}
+
+.add-list > button {
+  height: 10%;
+  padding: 1em .85em;
+  border-bottom: 1px solid #efeff4;
+  font-size: 1.1em;
+}
+
+.budget-item {
+  height: 10%;
+  padding: 1em 1em .75em 1em;
+  border-bottom: 1px solid #efeff4;
+  font-size: 1em;
+  font-weight: 700;
 }

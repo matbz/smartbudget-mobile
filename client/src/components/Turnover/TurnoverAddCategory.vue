@@ -4,7 +4,7 @@
       <div class="pure-u-1-3 header-cancel" @click="goTo('turnoverAdd')">
         <button class="button-cancel" >
           <i class="fa fa-chevron-left"></i>
-          Turnover
+          Transaction
         </button>
       </div>
       <div class="pure-u-1-3 header-text">

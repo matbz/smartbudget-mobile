@@ -21,11 +21,9 @@
     <div class="modal-actions">
       <button class="button button-primary" @click="save()">
           Save
-          <i class="fa fa-check-circle-o"></i>
       </button>
       <button class="button btn-cancel" @click="close()">
           Cancel
-          <i class="fa fa-times-circle-o"></i>
       </button>
     </div>
   </modal>
