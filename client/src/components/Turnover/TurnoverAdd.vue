@@ -5,7 +5,7 @@
         <button class="button-cancel" >Cancel</button>
       </div>
       <div class="pure-u-1-3 header-text">
-        Add Turnover<br/>(Budget: {{ budgetId }})
+        Add Transaction<br/>(Budget: {{ budgetId }})
       </div>
       <div class="pure-u-1-3 header-logout">
         <button v-if="aTurnover.id" class="button-logout" @click="deleteTurnover()">Delete</button>
