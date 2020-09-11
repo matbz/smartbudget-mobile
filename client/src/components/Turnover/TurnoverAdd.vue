@@ -60,7 +60,7 @@
       </div>
       <div class="pure-g save">
         <button class="pure-u-1 button-primary button-save" @click="saveTurnover()">
-          Save Turnover
+          Save Transaction
         </button>
       </div>
     </div>
