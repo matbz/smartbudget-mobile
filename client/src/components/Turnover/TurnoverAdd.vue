@@ -138,21 +138,21 @@ export default {
           try {
             await this.$store.dispatch('createTurnovers', this.aTurnover);
             this.reload();
-            this.$toasted.success('Turnover created.');
+            this.$toasted.success('Transaction created.');
             this.$store.dispatch('setTurnover', {});
             this.$router.push({ name: 'turnover' });
           } catch (error) {
-            this.$toasted.error('Error creating a turnover.');
+            this.$toasted.error('Error creating a transaction.');
           }
         } else {
           try {
             await this.$store.dispatch('updateTurnover', this.aTurnover);
             this.reload();
-            this.$toasted.success('Turnover updated.');
+            this.$toasted.success('Transaction updated.');
             this.$store.dispatch('setTurnover', {});
             this.$router.push({ name: 'turnover' });
           } catch (error) {
-            this.$toasted.error('Error updating a turnover.');
+            this.$toasted.error('Error updating a transaction.');
           }
         }
       } else {
@@ -163,11 +163,11 @@ export default {
       try {
         await this.$store.dispatch('deleteTurnovers', [this.aTurnover.id]);
         this.reload();
-        this.$toasted.success('Turnover deleted.');
+        this.$toasted.success('Transaction deleted.');
         this.$store.dispatch('setTurnover', {});
         this.$router.push({ name: 'turnover' });
       } catch (error) {
-        this.$toasted.error('Error deleting a turnover.');
+        this.$toasted.error('Error deleting a transaction.');
       }
     },
     reload() {
