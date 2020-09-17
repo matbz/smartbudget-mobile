@@ -17,7 +17,7 @@
         <div style="line-height: 0.85 !important">TO BE BUDGETED</div>
         <!-- <div>BUDGETED</div> -->
       </div>
-      <div style="line-height: 0.65 !important" class="pure-u-1-2 to-be-budgeted-amount">{{ toBeBudgeted | currency }}</div>
+      <div style="line-height: 0.85 !important" class="pure-u-1-2 to-be-budgeted-amount">{{ toBeBudgeted | currency }}</div>
     </div>
     <div class="content3">
       <div class="pure-g add-list">
