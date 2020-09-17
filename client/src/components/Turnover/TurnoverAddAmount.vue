@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100%">
-    <div class="pure-g header">
+    <div class="pure-g header header2">
       <div class="pure-u-1-3 header-cancel" @click="cancel()">
         <button class="button-cancel" >Cancel</button>
       </div>
@@ -27,22 +27,22 @@
       </div>
       <div class="pure-g number-pad">
         <div class="pure-u-3-4" style="height: 100%">
-          <div class="pure-g">
+          <div class="pure-g nbtn">
             <button class="pure-u-1-3 amount-number nbt" @click="addNumber(1)">1</button>
             <button class="pure-u-1-3 amount-number nbt" @click="addNumber(2)">2</button>
             <button class="pure-u-1-3 amount-number nbr nbt" @click="addNumber(3)">3</button>
           </div>
-          <div class="pure-g">
+          <div class="pure-g nbtn">
             <button class="pure-u-1-3 amount-number" @click="addNumber(4)">4</button>
             <button class="pure-u-1-3 amount-number" @click="addNumber(5)">5</button>
             <button class="pure-u-1-3 amount-number nbr" @click="addNumber(6)">6</button>
           </div>
-          <div class="pure-g">
+          <div class="pure-g nbtn">
             <button class="pure-u-1-3 amount-number" @click="addNumber(7)">7</button>
             <button class="pure-u-1-3 amount-number" @click="addNumber(8)">8</button>
             <button class="pure-u-1-3 amount-number nbr" @click="addNumber(9)">9</button>
           </div>
-          <div class="pure-g">
+          <div class="pure-g nbtn">
             <button class="pure-u-1 amount-number amount-number-zero nbr" @click="addNumber(0)">0</button>
           </div>
         </div>

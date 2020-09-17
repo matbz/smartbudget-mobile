@@ -134,10 +134,11 @@ input:focus {
   font-size: 4em;
   font-weight: 400;
   margin-right: .15em;
+  padding-top: 0.6em;
 }
 
 .expense-income {
-  height: 11%;
+  height: 10%;
   font-size: 1.4em;
   font-weight: 400;
   z-index: 1000;
@@ -530,4 +531,24 @@ input:focus {
   border-bottom: 1px solid #efeff4;
   font-size: 1em;
   font-weight: 700;
+}
+
+.footer > button {
+  margin-top: .3em;
+}
+
+.header {
+  padding-top: 1em;
+}
+
+.header2 {
+  padding-top: 0.5em;
+}
+
+.expense-income > button {
+  height: 100%;
+}
+
+.nbtn > button {
+  height: 100%;
 }

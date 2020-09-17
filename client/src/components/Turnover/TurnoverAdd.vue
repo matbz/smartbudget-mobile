@@ -1,6 +1,6 @@
 <template>
   <div style="height: 100%">
-    <div class="pure-g header">
+    <div class="pure-g header header2">
       <div class="pure-u-1-3 header-cancel" @click="cancel()">
         <button class="button-cancel" >Cancel</button>
       </div>
