@@ -121,10 +121,12 @@ export default {
         });
 
         await this.$store.dispatch('getBudgetId', this.$store.getters.user);
-        this.$store.dispatch('getAccounts');
+        await this.$store.dispatch('getAccounts');
         this.$store.dispatch('getTurnovers');
         this.$store.dispatch('getToBeBudgeted', this.budgetDate);
         this.$store.dispatch('getBudgetList', this.budgetDate);
+        this.aTurnover.accountId = this.accounts[0].id;
+        this.aTurnover.accountName = this.accounts[0].name;
         // this.$toasted.success('Budget switched.');
       } else {
         this.$toasted.show('No other budget found.');
@@ -185,11 +187,16 @@ export default {
       }
     }
   },
+  mounted() {
+    console.log('mounted');
+  },
   async created() {
+    console.log('created');
     await this.init();
     this.aTurnover = this.turnover;
 
-    if (!this.aTurnover.accountId && this.accounts[0]) {
+    // if (!this.aTurnover.accountId && this.accounts[0]) {
+    if (this.accounts[0]) {
       this.aTurnover.accountId = this.accounts[0].id;
       this.aTurnover.accountName = this.accounts[0].name;
     }

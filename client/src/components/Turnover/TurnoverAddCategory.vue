@@ -82,7 +82,7 @@ export default {
         });
 
         await this.$store.dispatch('getBudgetId', this.$store.getters.user);
-        this.$store.dispatch('getAccounts');
+        await this.$store.dispatch('getAccounts');
         this.$store.dispatch('getTurnovers');
         this.$store.dispatch('getToBeBudgeted', this.budgetDate);
         this.$store.dispatch('getBudgetList', this.budgetDate);
