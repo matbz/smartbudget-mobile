@@ -5,7 +5,7 @@
         <button class="button-cancel" >Cancel</button>
       </div>
       <div class="pure-u-1-3 header-text">
-        Add Transaction<br/>(Budget: {{ budgetId }})
+        Add Transaction<br/>(Budget: {{ budgetName }})
       </div>
       <div class="pure-u-1-3 header-logout">
         <button v-if="aTurnover.id" class="button-logout" @click="deleteTurnover()">Delete</button>
@@ -94,7 +94,8 @@ export default {
       'accounts',
       'user',
       'budgetId',
-      'budgetDate'
+      'budgetDate',
+      'budgetName'
     ]),
     formattedDate() {
       return moment(this.aTurnover.turnoverDate).format('DD.MM.YYYY');
@@ -121,6 +122,7 @@ export default {
         });
 
         await this.$store.dispatch('getBudgetId', this.$store.getters.user);
+        this.$store.dispatch('getBudgetName', this.$store.getters.user);
         await this.$store.dispatch('getAccounts');
         this.$store.dispatch('getTurnovers');
         this.$store.dispatch('getToBeBudgeted', this.budgetDate);
@@ -180,6 +182,7 @@ export default {
     async init() {
       if (!this.budgetId) {
         await this.$store.dispatch('getBudgetId', this.user);
+        this.$store.dispatch('getBudgetName', this.user);
         await this.$store.dispatch('getAccounts');
         this.$store.dispatch('getBudgetList', this.budgetDate);
         this.$store.dispatch('getToBeBudgeted', this.budgetDate);
@@ -187,11 +190,7 @@ export default {
       }
     }
   },
-  mounted() {
-    console.log('mounted');
-  },
   async created() {
-    console.log('created');
     await this.init();
     this.aTurnover = this.turnover;
 

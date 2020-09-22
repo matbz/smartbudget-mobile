@@ -22,6 +22,7 @@ export default {
   async created() {
     if (this.user) {
       await this.$store.dispatch('getBudgetId', this.user);
+      this.$store.dispatch('getBudgetName', this.user);
       this.$store.dispatch('getAccounts');
       this.$store.dispatch('getBudgetList', this.budgetDate);
       this.$store.dispatch('getToBeBudgeted', this.budgetDate);

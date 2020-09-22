@@ -23,6 +23,17 @@ module.exports = {
       });
     }
   },
+  async getName(req, res) {
+    const budget = new Budget();
+    try {
+      await budget.getName(req.query.userid);
+      res.json(budget);
+    } catch (err) {
+      res.status(500).json({
+       error: 'An error has occured trying to get the budget id'
+      });
+    }
+  },
   async update(req, res) {
     const budget = new Budget();
     try {

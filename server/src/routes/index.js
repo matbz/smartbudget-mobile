@@ -24,6 +24,10 @@ module.exports = (app) => {
     authRequired,
     BudgetController.active);
 
+  app.get('/api/budgets/name',
+    authRequired,
+    BudgetController.getName);
+
   app.put('/api/budgets/:id',
     authRequired,
     BudgetController.update);

@@ -43,6 +43,7 @@ export default {
       try {
         await this.$store.dispatch('login', this.credentials);
         await this.$store.dispatch('getBudgetId', this.user);
+        this.$store.dispatch('getBudgetName', this.user);
         this.$store.dispatch('getAccounts');
         this.$store.dispatch('getBudgetList', this.budgetDate);
         this.$store.dispatch('getToBeBudgeted', this.budgetDate);

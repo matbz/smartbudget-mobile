@@ -7,6 +7,7 @@ Vue.use(Vuex);
 
 const SET_BUDGET_LIST = 'SET_BUDGET_LIST';
 const SET_BUDGET_ID = 'SET_BUDGET_ID';
+const SET_BUDGET_NAME = 'SET_BUDGET_NAME';
 const SET_BUDGET_DATE = 'SET_BUDGET_DATE';
 const SET_TOBEBUDGETED = 'SET_TOBEBUDGETED';
 const SET_BUDGETEDLASTMONTH = 'SET_BUDGETEDLASTMONTH';
@@ -20,6 +21,7 @@ const budget = {
   state: {
     budgetList: [],
     budgetId: null,
+    budgetName: '',
     budgetDate: moment(new Date()).format('YYYYMM01'),
     toBeBudgeted: 0,
     budgetedLastMonth: 0,
@@ -32,6 +34,9 @@ const budget = {
     },
     SET_BUDGET_ID(state, id) {
       state.budgetId = id;
+    },
+    SET_BUDGET_NAME(state, name) {
+      state.budgetName = name;
     },
     SET_BUDGET_DATE(state, date) {
       state.budgetDate = date;
@@ -78,6 +83,15 @@ const budget = {
         throw new Error(error);
       }
     },
+    async getBudgetName({ commit }, data) {
+      try {
+        console.log(data.id);
+        const response = await HTTP.get(`/api/budgets/name?userid=${data.id}`);
+        commit(SET_BUDGET_NAME, response.data.name);
+      } catch (error) {
+        throw new Error(error);
+      }
+    },
     async setBudgetDate({ commit }, date) {
       commit(SET_BUDGET_DATE, date);
     },
@@ -113,6 +127,9 @@ const budget = {
     },
     budgetId(state) {
       return state.budgetId;
+    },
+    budgetName(state) {
+      return state.budgetName;
     },
     budgetDate(state) {
       return state.budgetDate;

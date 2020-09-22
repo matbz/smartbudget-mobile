@@ -12,6 +12,7 @@ class Budget {
       return;
     }
     this.id = data.budget_id;
+    this.name = data.name;
     this.toBeBudgeted = data.toBeBudgeted;
   }
 
@@ -35,6 +36,23 @@ class Budget {
       from user_budget
       where user_id = ${userid} and
             active = true
+      `;
+      const result = await db.oneOrNone(query);
+      if (!result) return {};
+      this.init(result);
+    } catch (error) {
+        console.log(error);
+    }
+  }
+
+  async getName(userid) {
+    try {
+      const query = SQL`
+      select b.name
+      from user_budget as ub
+      inner join budget as b on b.id = ub.budget_id
+      where ub.user_id = ${userid} and
+            ub.active = true
       `;
       const result = await db.oneOrNone(query);
       if (!result) return {};

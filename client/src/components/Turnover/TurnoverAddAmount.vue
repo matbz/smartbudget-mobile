@@ -5,7 +5,7 @@
         <button class="button-cancel" >Cancel</button>
       </div>
       <div class="pure-u-1-3 header-text">
-        Add Transaction<br/>(Budget: {{ budgetId }})
+        Add Transaction<br/>(Budget: {{ budgetName }})
       </div>
       <div class="pure-u-1-3 header-logout">
         <button v-if="!aTurnover.id" class="button-logout" @click="switchBudget()">Switch</button>
@@ -83,6 +83,7 @@ export default {
     ...mapGetters([
       'turnover',
       'budgetId',
+      'budgetName',
       'budgetDate',
       'budgetList',
       'toBeBudgeted',
@@ -140,6 +141,7 @@ export default {
         });
 
         await this.$store.dispatch('getBudgetId', this.$store.getters.user);
+        this.$store.dispatch('getBudgetName', this.$store.getters.user);
         this.$store.dispatch('getAccounts');
         this.$store.dispatch('getTurnovers');
         this.$store.dispatch('getToBeBudgeted', this.budgetDate);
