@@ -1,13 +1,13 @@
 <template>
   <div style="height: 100%">
     <div class="pure-g header header2">
-      <div class="pure-u-1-4 header-cancel" @click="cancel()">
+      <div class="pure-u-1-3 header-cancel" @click="cancel()">
         <button class="button-cancel" >Cancel</button>
       </div>
-      <div class="pure-u-1-2 header-text">
-        Add Transaction<br/>(Budget: {{ budgetName }})
+      <div class="pure-u-1-3 header-text">
+        Add Transaction<br/>to '{{ budgetName }}'
       </div>
-      <div class="pure-u-1-4 header-logout">
+      <div class="pure-u-1-3 header-logout">
         <button v-if="!aTurnover.id" class="button-logout" @click="switchBudget()">Switch</button>
       </div>
     </div>
