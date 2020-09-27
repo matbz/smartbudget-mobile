@@ -4,7 +4,7 @@
       <div class="pure-u-1-3 header-cancel">
         <i class="fa fa-chevron-circle-left budget-header-icon budget-left" @click="goToLastMonth()"></i>
       </div>
-      <div class="pure-u-1-3 header-text" @click="switchBudget()">
+      <div class="pure-u-1-3 header-text" @dblclick="switchBudget()">
         {{ budgetDateFormatted }}
       </div>
       <div class="pure-u-1-3 header-logout">
