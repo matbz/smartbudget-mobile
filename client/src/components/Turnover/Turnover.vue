@@ -1,12 +1,26 @@
 <template>
   <div style="height: 100%">
     <div class="pure-g header">
-      <div class="pure-u-1-3 header-cancel" @click="getThisYear()">
+      <!-- <div class="pure-u-1-3 header-cancel" @click="getThisYear()">
         <button class="button-cancel" >This Year</button>
+      </div> -->
+      <div class="pure-u-1-3 header-cancel" @click="getAllDates()">
+        <button class="button-cancel" >All Dates</button>
       </div>
       <div class="pure-u-1-3 header-text">Account</div>
-      <div class="pure-u-1-3 header-logout" @click="getAllDates()">
-        <button class="button-logout" >All Dates</button>
+      <div class="pure-u-1-3 header-logout">
+              <input
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+                type="text"
+                class="transaction-search-input"
+                placeholder="Search"
+                v-model="searchText"
+                @keyup.enter="searchAndClose($event)"
+                @keyup="search()"
+                >
+              <i v-if="searchText" class="fa fa-times transaction-search-cancel-icon" @click="clearSearch()"></i>
       </div>
     </div>
     <div class="content2">
@@ -61,12 +75,18 @@ export default {
   components: {
     TurnoverGroup
   },
+  data() {
+    return {
+      searchText: ''
+    };
+  },
   computed: {
     ...mapGetters([
       'turnovers',
       'user',
       'budgetId',
-      'budgetDate'
+      'budgetDate',
+      'turnoverSearchstring'
     ]),
     turnoversByDate() {
       const data = {};
@@ -91,6 +111,21 @@ export default {
     }
   },
   methods: {
+    searchAndClose(e) {
+      this.search();
+      e.target.blur();
+    },
+    clearSearch() {
+      this.searchText = '';
+      this.search();
+    },
+    async search() {
+      this.$store.dispatch('setTurnoverSearchstring', this.searchText);
+      const response = await HTTP.get(`/api/${this.budgetId}/turnovers/minmaxdate`);
+      const end = moment(response.data.max).toDate();
+      const start = moment(response.data.min).toDate();
+      await this.getTurnovers(end, start);
+    },
     goTo(routeName) {
       this.$router.push({ name: routeName });
     },
@@ -151,6 +186,7 @@ export default {
   },
   created() {
     this.getTurnovers();
+    this.searchText = this.turnoverSearchstring;
   }
 };
 </script>

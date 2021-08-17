@@ -113,7 +113,6 @@ const turnover = {
         }
 
         route += `&orderby=${getters.turnoverOrderName};${getters.turnoverOrderDirection};`;
-
         const response = await HTTP.get(route);
         commit(SET_TURNOVERS, response.data);
       } catch (error) {

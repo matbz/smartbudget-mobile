@@ -2,7 +2,7 @@
   <button class="pure-u-1" @click="edit()">
     <span class="fl">
       {{ item.category_name || 'No Category' }}
-      <span v-if="item.payee" class="payee-text">{{`( ${item.payee} ) `}}</span>
+      <span v-if="item.note" class="payee-text">{{`(${item.note}) `}}</span>
     </span>
     <span class="fr bold"
           :class="Number(item.amount) >= 0 ? '' : 'negative'"
