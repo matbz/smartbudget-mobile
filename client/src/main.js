@@ -13,7 +13,7 @@ Vue.use(VModal);
 Vue.use(Toasted, {
   theme: 'bubble',
   position: 'bottom-center',
-  duration: 1000
+  duration: 500
 });
 
 Vue.config.productionTip = false;
