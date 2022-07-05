@@ -30,6 +30,7 @@ class Category {
       inner join category as ca
       on ca.categorygroup_id = cg.id
       where cg.budget_id = ${budgetid}
+      and ca.is_hidden = false
       order by
         cg.position,
         ca.position
