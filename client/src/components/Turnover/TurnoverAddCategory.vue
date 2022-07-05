@@ -65,6 +65,12 @@ export default {
         }]
       });
 
+      for (let index = 0; index < data.length; index++) {
+        if (index > 0) {
+          data[index].items = data[index].items.filter(c => !c.category_is_hidden);
+        }
+      }
+
       return data;
     }
   },
